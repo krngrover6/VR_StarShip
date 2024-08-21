@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
+public class XRSocketTagInteractor : XRSocketInteractor
+{
+    // Start is called before the first frame update
+    public string targetTag;
+    public override bool CanHover(IXRHoverInteractable interactable)
+    {
+        return base.CanHover(interactable) && interactable.transform.tag == targetTag;
+    }
+
+    public override bool CanSelect(IXRSelectInteractable interactable)
+    {
+        return base.CanSelect(interactable) && interactable.transform.tag == targetTag;
+    }
+
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
